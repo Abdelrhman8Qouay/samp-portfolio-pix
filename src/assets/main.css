@@ -1,0 +1,54 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pixel Google Font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'VT323', monospace;
+}
+
+/* main colors
+#008b8b white blue
+#fff white
+#000 black
+*/
+
+:root {
+  --main: #008b8b;
+  --white: #fff;
+  --white-darken1: #d1d1d1;
+  --dark: #000;
+  --dark-whiter1: #1f1f1f;
+
+  --hover-trans: 0.3s;
+
+  --for-word: #ffffff;
+    --body: #1d2a35;
+    --for-spesh: #6f87cd;
+    --for-addition: #24cae8;
+}
+
+/* when you want to make the body cannot scrolling */
+.noscroll {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1024px; /* lg screen: 1024px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-text {
+  color: var(--main);
+}
+.main-bg {
+  background: var(--main);
+}
+
+
