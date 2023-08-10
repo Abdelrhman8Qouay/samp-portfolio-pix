@@ -11,6 +11,9 @@
   padding: 0;
   font-family: 'VT323', monospace;
 }
+*::selection {
+  color: #24cae8;
+}
 
 /* main colors
 #008b8b white blue
@@ -19,7 +22,8 @@
 */
 
 :root {
-  --main: #008b8b;
+  --main: #8341e0;
+  --main-clear: #8341e057;
   --white: #fff;
   --white-darken1: #d1d1d1;
   --dark: #000;
@@ -49,6 +53,12 @@
 }
 .main-bg {
   background: var(--main);
+}
+.main_clear-text {
+  color: var(--main-clear);
+}
+.main_clear-bg {
+  background: var(--main-clear);
 }
 
 

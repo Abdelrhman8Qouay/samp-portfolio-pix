@@ -4,7 +4,7 @@ import { ref } from 'vue';
 </script>
 
 <template>
-    <div class="parent max-w-[1024px] mx-auto w-full">
+    <div class="parent fixed max-w-[1024px] mx-auto top-[5%] left-1/2 -translate-x-1/2 w-full">
 
         <nav class="nav w-full flex justify-start items-center gap-5">
             <a href="https://www.facebook.com/profile.php?id=100090009622327" target="_blank" class="text-white">
