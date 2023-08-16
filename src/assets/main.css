@@ -4,37 +4,41 @@
 @tailwind utilities;
 
 /* Pixel Google Font */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'VT323', monospace;
-}
-*::selection {
-  color: #24cae8;
-}
-
-/* main colors
-#008b8b white blue
-#fff white
-#000 black
-*/
+@layer url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* Base Google Font */
+@layer url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --main: #8341e0;
-  --main-clear: #8341e057;
+  --main: #6f87cd;
+  --main-clear: #24cae8;
   --white: #fff;
   --white-darken1: #d1d1d1;
   --dark: #000;
   --dark-whiter1: #1f1f1f;
 
-  --hover-trans: 0.3s;
+  --roof-color: #41464b;
+  --ground-color: #1d2a35;
+  --back-chars: #043247;
 
-  --for-word: #ffffff;
-    --body: #1d2a35;
-    --for-spesh: #6f87cd;
-    --for-addition: #24cae8;
+  --hover-trans: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: 'VT323', monospace; */
+  font-family: 'Roboto Slab', serif;
+}
+*::selection {
+  color: #24cae8;
+}
+
+
+body {
+  background: var(--ground-color);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 /* when you want to make the body cannot scrolling */
@@ -48,17 +52,83 @@
   margin-right: auto;
 }
 
+/* Text Colors */
 .main-text {
   color: var(--main);
-}
-.main-bg {
-  background: var(--main);
 }
 .main_clear-text {
   color: var(--main-clear);
 }
+.roof-text {
+  color: var(--roof-color);
+}
+.ground-text {
+  color: var(--ground-color);
+}
+.chars-text {
+  color: var(--back-chars);
+}
+/* Background Colors  */
+.main-bg {
+  background: var(--main);
+}
 .main_clear-bg {
   background: var(--main-clear);
 }
+.roof-bg {
+  background: var(--roof-color);
+}
+.ground-bg {
+  background: var(--ground-color);
+}
+.chars-bg {
+  background: var(--back-chars);
+}
 
+/* manual divider for dividing the page */
+.dividing {
+  box-shadow: inset 0px 0px 10px 0px black;
+  background: var(--roof-color);
+  z-index: 1;
+  width: 100%;
+  height: 100px;
+}
 
+/* when click on the button like real */
+.clicked {
+  box-shadow: inset 0 0 3px 0 var(--dark);
+}
+.clicked:active {
+  box-shadow: unset;
+}
+
+/* for absolute and fixed position elements */
+.absolute-top {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 95%;
+}
+.absolute-down {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 95%;
+}
+.fixed-top {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 95%;
+}
+.fixed-down {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 95%;
+}
+
+/* font families added */
+.font-mono {
+  font-family: monospace;
+}

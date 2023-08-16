@@ -1,6 +1,5 @@
 <template>
     <!-- Start Projects  -->
-    <Navbar></Navbar>
 
     <div class="projectsCap mb-6">
         <!-- Title Row -->
@@ -66,7 +65,6 @@
 import { ref, onMounted } from "vue";
 import { getImageUrl } from '@/models/work.js';
 // get components
-import Navbar from '@/components/Main/Navbar.vue';
 // get data
 import projects_front from "@/data/dataProjectsFront.json";
 import projects_full from "@/data/dataProjectsFull.json";

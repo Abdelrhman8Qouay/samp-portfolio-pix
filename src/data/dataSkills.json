@@ -1,10 +1,5 @@
 [
     {
-        "name": "Bootstrap5",
-        "image": "assets/Icons/bootstrap-5-logo-icon.png",
-        "describe": "Bootstrap: my favorite framework with css"
-    },
-    {
         "name": "HTML5",
         "image": "assets/Icons/html-icon.png",
         "describe": "HTML:"
@@ -45,16 +40,6 @@
         "describe": "Git: I was very close to getting a mastery badge but unfortunately next time"
     },
     {
-        "name": "Sass",
-        "image": "assets/Icons/sass-icon.png",
-        "describe": "Sass: A little dealing and patience with a master"
-    },
-    {
-        "name": "Wordpress",
-        "image": "assets/Icons/wordpress-icon.png",
-        "describe": "Wordpress: One or more pages, but do not worry, mastering it is simple with another project. Try and you will see, but make sure that you are on your simple path"
-    },
-    {
         "name": "GulpJs",
         "image": "assets/Icons/gulp-js-icon.png",
         "describe": "GulpJs:"
@@ -67,17 +52,27 @@
     {
         "name": "Pinia",
         "image": "assets/Icons/Pinia-img.svg",
-        "describe": "Pinia:"
+        "describe": "Pinia: is powerful store to make your app is scalable & powerful"
+    },
+    {
+        "name": "Sass",
+        "image": "assets/Icons/sass-icon.png",
+        "describe": "Sass: A little dealing and patience with a master"
     },
     {
         "name": "Vuetify",
         "image": "assets/Icons/vuetify-logo-v3-dark.svg",
-        "describe": "Vuetify:"
+        "describe": "Vuetify: a vue (ui design) tool and you can say this tool same like all of them [no different things]"
+    },
+    {
+        "name": "Bootstrap5",
+        "image": "assets/Icons/bootstrap-5-logo-icon.png",
+        "describe": "Bootstrap: a public (ui design) tool i used it when was a beginner many times"
     },
     {
         "name": "Tailwind",
         "image": "assets/Icons/tailwind-css-icon.png",
-        "describe": "Tailwind:"
+        "describe": "Tailwind: is now my favorite (ui design) tool i used it with my biggest projects with no [a few] problems"
     },
     {
         "name": "ViteJs",
@@ -102,7 +97,7 @@
     {
         "name": "C++",
         "image": "assets/Icons/c-plus-plus-programming-language-icon.png",
-        "describe": "C++: Not Good but i do not need except the old syntax"
+        "describe": "C++: is my favorite language to get deeper with computer science"
     },
     {
         "name": "Python",

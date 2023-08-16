@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, toRefs } from 'vue';
+import { ref, defineProps, toRefs, shallowRef } from 'vue';
 // get icons
 import Account from 'vue-material-design-icons/Account.vue';
 import Email from 'vue-material-design-icons/Email.vue';
@@ -18,11 +18,11 @@ const props = defineProps({
 const { require, type, title, name, limit, ico } = toRefs(props);
 
 // handle the icons to work
-const Icons = ref(null);
-if (ico.value === 'account') Icons.value = Account;
-if (ico.value === 'email') Icons.value = Email;
-if (ico.value === 'phone') Icons.value = Phone;
-if (ico.value === 'message') Icons.value = Message;
+// const Icons = shallowRef(null);
+// if (ico.value === 'account') Icons.value = Account;
+// else if (ico.value === 'email') Icons.value = Email;
+// else if (ico.value === 'phone') Icons.value = Phone;
+// else if (ico.value === 'message') Icons.value = Message;
 
 const isFocus = ref(false);
 const valueInput = ref('');
@@ -33,8 +33,7 @@ const valueInput = ref('');
     <div class="inputBox" v-if="type !== 'textarea'" @focusin="isFocus = true" @focusout="isFocus = false">
         <input :type="type" :name="name" :maxlength="limit" :required="require" @invalid="isFocus = false"
             @input="$emit('inp', valueInput)" v-model="valueInput">
-        <span>
-            <component v-if="Icons" class="inline-block mx-2" :is="Icons" fillColor="#fff" :size="isFocus ? 21 : 24" />
+        <span class="snap">
             <span>{{ title
             }}</span>
         </span>
@@ -42,8 +41,7 @@ const valueInput = ref('');
     <div class="inputBox" v-else @focusin="isFocus = true" @focusout="isFocus = false">
         <textarea :name="name" :maxlength="limit" :required="require" @invalid="isFocus = false"
             @input="$emit('inp', valueInput)" v-model="valueInput"></textarea>
-        <span>
-            <component v-if="Icons" class="inline-block mx-2" :is="Icons" fillColor="#fff" :size="isFocus ? 21 : 24" />
+        <span class="snap">
             <span>{{ title
             }}</span>
         </span>
@@ -62,39 +60,39 @@ const valueInput = ref('');
     outline: none;
     padding: 10px;
     border: 1px solid rgb(53, 53, 53);
-    background: var(--body);
+    background: var(--ground-color);
     border-radius: 5px;
-    color: var(--for-word);
+    color: var(--white);
     font-size: 1em;
     transition: var(--hover-trans);
 }
 
-.inputBox span {
+.inputBox .snap {
     position: absolute;
     left: 0;
     pointer-events: none;
     padding: 10px;
-    color: var(--for-word);
+    color: var(--white);
     font-size: 1em;
     text-transform: uppercase;
-    transition: 0.4s;
+    transition: var(--hover-trans);
 }
 
-.inputBox input:focus~span,
-.inputBox input:valid~span,
-.inputBox textarea:valid~span,
-.inputBox textarea:focus~span {
-    color: var(--for-addition);
+.inputBox input:focus~.snap,
+.inputBox input:valid~.snap,
+.inputBox textarea:valid~.snap,
+.inputBox textarea:focus~.snap {
+    color: var(--main);
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
     padding: 0 10px;
-    background: var(--body);
     letter-spacing: 0.2em;
     border-radius: 5px;
+    background-color: var(--ground-color);
 }
 
 .inputBox input:focus,
 .inputBox textarea:focus {
-    border: 1px solid var(--for-addition);
+    border: 1px solid var(--main);
 }
 </style>
