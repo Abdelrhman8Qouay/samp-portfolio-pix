@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 
+
+const madeIn = ref(new Date().getFullYear());
 </script>
 
 <template>
@@ -8,24 +10,22 @@ import { ref } from 'vue';
         <div class="container h-full">
             <nav class="nav w-full flex justify-between items-center gap-5 h-full">
                 <div class="flex justify-start items-center gap-5">
-                    <a href="https://www.facebook.com/profile.php?id=100090009622327" target="_blank" class="text-white">
+                    <!-- <a href="https://www.facebook.com/profile.php?id=100090009622327" target="_blank" class="text-white">
                         <img class="w-9 h-9 rounded-full hover:bg-opacity-30" src="@/assets/bussin_logo.png"
                             alt="owner avatar">
-                    </a>
-                    <RouterLink :class="$route.path === '/' ? 'text-orange-500 font-bold' : 'text-white'" to="/">Home
-                    </RouterLink>
-                    <RouterLink :class="$route.path === '/contact' ? 'text-orange-500 font-bold' : 'text-white'"
-                        to="/contact">
-                        Contact Us
-                    </RouterLink>
-                    <RouterLink :class="$route.path === '/projects' ? 'text-orange-500 font-bold' : 'text-white'"
-                        to="/projects">
-                        Projects
-                    </RouterLink>
+                    </a> -->
+                    <!-- Copyright -->
+                    <div class="text-start p-1 text-white">
+                        © {{ madeIn }} Copyright:
+                        <a class="main-text hover:text-cyan-300 transition"
+                            href="https://www.facebook.com/profile.php?id=100090009622327">Abdelrhman
+                            Qouay</a> & madeWith 💖
+                    </div>
+                    <!-- Copyright -->
                 </div>
                 <div class="w-[60px] h-[60px]">
-                    <img class="w-full h-full" style="transform: rotateY(180deg);" src="@/assets/gif/char.gif"
-                        alt="pixel character">
+                    <img class="w-full h-full" style="transform: rotateY(180deg);" loading="lazy"
+                        src="@/assets/gif/char.gif" alt="pixel character">
                 </div>
             </nav>
         </div>
@@ -36,20 +36,5 @@ import { ref } from 'vue';
 .parent {
     // background: linear-gradient(45deg, var(--roof-color), var(--ground-color));
     background: var(--back-chars);
-}
-
-.nav {
-    a {
-        font-size: 16px;
-        transition: var(--hover-trans);
-        position: relative;
-        text-decoration: none;
-        font-family: 'Courier New', Courier, monospace;
-
-        &:hover {
-            transform: translateY(-5px) scale(1.10);
-            color: chocolate;
-        }
-    }
 }
 </style>

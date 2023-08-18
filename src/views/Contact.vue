@@ -27,10 +27,11 @@
                 <Inputing type="textarea" title="Message" name="msg" require />
               </div>
               <div class="mt-9">
-                <button
+                <!-- <button
                   class="px-4 py-1 border-none main-bg hover:bg-white transition flex justify-center items-center text-base font-mono">
                   Sending now
-                </button>
+                </button> -->
+                <Button txt="Sending now" :is-button="true" />
               </div>
             </form>
           </div>
@@ -40,9 +41,17 @@
       <!-- Second part -->
       <div class="flex-1 bg-white p-14 max-lg:border-b-2 max-lg:border-b-black">
         <h2 class="text-3xl max-lg:text-lg text-black font-semibold font-mono">You can <br> contact me here</h2>
-        <div class="w-full p-[1rem] mt-4 rounded-md border border-[#656565] bg-[#8a8a8ab7] text-[#141619]">
-          <li class="m-0 leading-relaxed font-normal text-sm font-serif">You can send it directly to my e-mail with
+        <!-- Alert Msg -->
+        <div class="w-full p-[1rem] mt-4 rounded-md border border-[#043247] bg-[#0432478b] text-white">
+          <li class="m-0 leading-relaxed font-normal text-sm font-sans">You can send your Msg directly to my e-mail with
             (get in touch)</li>
+        </div>
+        <!-- Alert Msg -->
+        <div class="w-full p-[1rem] mt-4 rounded-md border border-[#043247] bg-[#0432478b] text-white">
+          <li class="m-0 leading-relaxed font-normal text-sm font-sans flex items-center">you can install CV when click
+            on
+            <Disc class="inline-block mx-1" fillColor="#fff" :size="22" />
+          </li>
         </div>
         <h5 class="text-base text-slate-900 font-medium mt-4">You can also access social networking or my location here
         </h5>
@@ -104,6 +113,7 @@ import { getImageUrl } from '@/models/work.js'
 // get components
 import Inputing from '@/components/Input.vue';
 import Title from '@/components/Title.vue';
+import Button from '@/components/Button.vue';
 // get icons
 import MapMarkerRadius from 'vue-material-design-icons/MapMarkerRadius.vue';
 import Facebook from 'vue-material-design-icons/Facebook.vue';

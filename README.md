@@ -60,3 +60,14 @@ npm i vue-material-design-icons
 npm i aos
 ```
 [install aos library, that make fade animation with scrolling & loading ( to show doc: https://michalsnik.github.io/aos/ ) ]
+
+
+------------------------------------------------------------------
+
+
+# Vite Commands Used
+
+ ```sh
+npm i vite-plugin-compression -D
+```
+[install vite-plugin-compression to compress the site ]

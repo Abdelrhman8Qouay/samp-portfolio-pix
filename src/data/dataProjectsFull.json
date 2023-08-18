@@ -2,8 +2,16 @@
     "name": "E,commerce Website (Elzero Course)",
     "image": "",
     "describe": "E,commerce Page, with vanilla PHP from ( Elzero Course ) on youtube",
-    "viewPage":"#",
+    "viewPage":"",
     "codePage":"https://github.com/Abdelrhman8Qouay/eComm-Elzero-Project",
     "info": "pending"
+},
+{
+    "name": "CG (chat-online)",
+    "image": "assets/projects/chat_online.png",
+    "describe": "Chatgloy: is chatbot app online with your system behind the scene with no control for any other expect the owner [and this because it simple app] with >> php(pure + PDO [db connection]) & HTML & css(Sass) & Js(pure)",
+    "viewPage":"",
+    "codePage":"https://github.com/Abdelrhman8Qouay/php-chatgloy-simp-fs",
+    "info": "completed"
 }
 ]

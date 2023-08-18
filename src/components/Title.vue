@@ -1,9 +1,9 @@
 <template>
     <h2 class="text-white text-3xl max-md:text-xl max-sm:text-lg my-2 w-full font-semibold font-mono"
-        :class="'text-' + where"><span class="text-green-500 font-bold">|☼|</span>
+        :class="'text-' + where"><span class="main_clear-text font-bold">|☼|</span>
         {{
             txt }}
-        <span class="text-green-500 font-bold">|☼|</span>
+        <span class="main_clear-text font-bold">|☼|</span>
     </h2>
 </template>
 

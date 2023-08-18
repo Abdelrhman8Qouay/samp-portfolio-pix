@@ -62,15 +62,15 @@ const ownerAge = ref(
       <div class="back w-full h-full bg-[url(@/assets/gif/landing.png)] bg-center bg-cover bg-no-repeat">
         <div class="mid flex flex-col justify-center items-center my-12">
           <div class="w-[130px] h-[130px]">
-            <img class="w-full h-full rounded-xl object-cover" src="@/assets/me_pixel.jpg" alt="owner">
+            <img class="w-full h-full rounded-xl object-cover" src="@/assets/me_pixel.jpg" loading="lazy" alt="owner">
           </div>
           <div class="infTit ground-bg">
             <h3 class="main-text font-bold block">Hello there, I'am Abdelrhman Ashraf</h3>
-            <p>i'am Software Engineer more accurate Full Stack,
+            <p class="text-white">i'am Software Engineer more accurate Full Stack,
               you can hire me and also can download CV
             </p>
             <div class="flex">
-              <Button txt="Download CV" :is-button="false" url="#" ico="disc" icoColor="#000" :icoSize="24" />
+              <Button txt="Download CV" :is-button="false" url="#" ico="disc" icoColor="#fff" :icoSize="24" />
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ const ownerAge = ref(
           <!-- Title -->
           <Title txt="About Us" where="center" />
           <!-- Written -->
-          <p class="text-base text-white"><span class="text-xl font-semibold text-black block">i'am Software
+          <p class="text-base text-white"><span class="text-xl font-semibold main-text block">i'am Software
               Engineer</span>,
             i'am Software Engineer more accurate Full Stack with ServerSide >> php(laravel framework) & ClientSide >>
             vue(vue2 || vue (composition api)) & anyTool css Designing.
@@ -132,7 +132,7 @@ const ownerAge = ref(
     <div class="dividing"></div>
 
     <!-- Start Education Box -->
-    <div class="container">
+    <div class="container my-4">
       <div class="block w-full">
         <Title txt="Education" where="center" />
         <p class="text-center text-white">Education Is Not The Learning Of Facts, But The Training Of The Mind To Think.
@@ -140,9 +140,10 @@ const ownerAge = ref(
       </div>
       <div class="card w-full h-max block shadow-md shadow-black my-2" data-aos="fade-right">
         <div class="card_body w-full flex">
-          <div class="img_card m-2 h-full w-1/4">
+          <div class="img_card h-full w-1/4">
             <img class="w-full h-full object-cover"
-              src="https://www.elwekalanews.net/UploadCache/libfiles/13/5/600x338o/737.jpg" alt="the institute">
+              src="https://www.elwekalanews.net/UploadCache/libfiles/13/5/600x338o/737.jpg" loading="lazy"
+              alt="the institute">
           </div>
           <div class="info_card flex-1 m-3">
             <h5 class="main-text font-bold">Bachelor of Business Administration</h5>
@@ -156,6 +157,8 @@ const ownerAge = ref(
       </div>
     </div>
     <!-- End Education Box -->
+
+    <div class="dividing"></div>
   </div>
 </template>
 
