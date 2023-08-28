@@ -34,7 +34,6 @@ const madeIn = ref(new Date().getFullYear());
 
 <style lang="scss" scoped>
 .parent {
-    // background: linear-gradient(45deg, var(--roof-color), var(--ground-color));
     background: var(--back-chars);
 }
 </style>
