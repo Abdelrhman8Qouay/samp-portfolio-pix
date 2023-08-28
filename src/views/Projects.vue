@@ -51,8 +51,7 @@ const contentRecommended = ref([
 <template>
     <div class="projects">
         <!-- Start Projects  -->
-        <div
-            class="projectsCap w-full min-h-screen p-5 bg-no-repeat bg-cover bg-fixed bg-[url(https://i.pinimg.com/originals/b8/2f/28/b82f28a7e9c8fcb3868d3d94652c107c.gif)]">
+        <div class="projectsCap w-full min-h-screen p-5">
             <!-- Title Row -->
             <div class="container">
                 <div class="flex flex-row max-md:flex-col justify-between p-4">
@@ -143,7 +142,7 @@ const contentRecommended = ref([
                             </div>
                         </div>
 
-                        <div class="dividing my-3"></div>
+                        <div class="dividing mt-3"></div>
                     </div>
                     <!-- Content All Types Of Projects -->
                 </div>
@@ -178,14 +177,12 @@ const contentRecommended = ref([
     color: black;
     padding: 10px;
     transition: var(--hover-trans);
-
-    &:hover {
-        border: 8px double #fff;
-        color: #fff;
-    }
 }
 
 .projectsCap {
+    background: url(@/assets/gif/back_projects.jpg) fixed no-repeat;
+    background-size: cover;
+
     .proBox {
         border: 8px solid var(--back-chars);
         flex: 1 0 400px;

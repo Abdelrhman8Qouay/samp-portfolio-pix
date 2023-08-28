@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/main.css';
 
 import { createApp } from 'vue';
 
@@ -8,8 +8,8 @@ import 'aos/dist/aos.css';
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App).use(AOS.init());
+const app = createApp(App);
 
-app.use(router);
+app.use(router).use(AOS.init());
 
 app.mount('#app');
