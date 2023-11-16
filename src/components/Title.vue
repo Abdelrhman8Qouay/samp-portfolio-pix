@@ -1,10 +1,5 @@
 <template>
-    <h2 class="text-white text-3xl max-md:text-xl max-sm:text-lg my-2 w-full font-semibold font-mono"
-        :class="'text-' + where"><span class="main_clear-text font-bold">|☼|</span>
-        {{
-            txt }}
-        <span class="main_clear-text font-bold">|☼|</span>
-    </h2>
+    <div class="text-gray-900 text-5xl max-md:text-2xl font-semibold mb-4">{{ txt }}</div>
 </template>
 
 <script setup>

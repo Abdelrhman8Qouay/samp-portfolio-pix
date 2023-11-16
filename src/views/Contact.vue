@@ -1,89 +1,52 @@
+
+
 <template>
-  <div class="contact relative">
-
-    <!-- Start Contact Here -->
-
-    <div class="w-full h-full flex max-lg:flex-col">
-      <!-- First part -->
-      <div class="flex-1 min-h-[calc(100vh-68px)] p-14 md:border-r-2 md:border-r-black max-lg:order-1">
-        <div class="container">
-          <!-- Title of Contact -->
-          <div class="w-full z-10">
-            <Title txt="Get In Touch" where="start" />
+  <div class="contact container my-[100px]">
+    <div class="seding w-full mb-20">
+      <Title txt="Get In Touch" />
+      <div class="max-w-[700px] px-4">
+        <FormKit type="form" id="form-contact" submit-label="s" action="https://formspree.io/f/xwkjpygk" method="POST">
+          <div class="mb-3">
+            <FormKit type="text" name="name" prefix-icon="avatarMan" placeholder="Your Name" validation="required"
+              :classes="textInp" />
           </div>
-          <!-- form contact -->
-          <div class="ground-bg py-3 w-full h-full rounded-lg" data-aos="zoom-in-up">
-            <form action="https://formspree.io/f/xwkjpygk" method="POST">
-              <div class="mb-4">
-                <Inputing type="text" title="Name" name="name" ico="account" require />
-              </div>
-              <div class="mb-4">
-                <Inputing type="text" title="Email" name="email" require />
-              </div>
-              <div class="mb-4">
-                <Inputing type="text" title="Phone" name="phone" require />
-              </div>
-              <div class="mb-4">
-                <Inputing type="textarea" title="Message" name="msg" require />
-              </div>
-              <div class="mt-9">
-                <!-- <button
-                  class="px-4 py-1 border-none main-bg hover:bg-white transition flex justify-center items-center text-base font-mono">
-                  Sending now
-                </button> -->
-                <Button txt="Sending now" :is-button="true" />
-              </div>
-            </form>
+          <div class="mb-3">
+            <FormKit type="text" name="email" prefix-icon="email" placeholder="Your Email" validation="required|email"
+              :classes="textInp" />
           </div>
-        </div>
-      </div>
+          <div class="mb-3">
+            <FormKit type="textarea" name="message" placeholder="Your Message here" validation="required|length:2,300"
+              :classes="textInp" />
+          </div>
 
-      <!-- Second part -->
-      <div class="flex-1 bg-white p-14 max-lg:border-b-2 max-lg:border-b-black">
-        <h2 class="text-3xl max-lg:text-lg text-black font-semibold font-mono">You can <br> contact me here</h2>
-        <!-- Alert Msg -->
-        <div class="w-full p-[1rem] mt-4 rounded-md border border-[#043247] bg-[#0432478b] text-white">
-          <li class="m-0 leading-relaxed font-normal text-sm font-sans">You can send your Msg directly to my e-mail with
-            (get in touch)</li>
-        </div>
-        <!-- Alert Msg -->
-        <div class="w-full p-[1rem] mt-4 rounded-md border border-[#043247] bg-[#0432478b] text-white">
-          <li class="m-0 leading-relaxed font-normal text-sm font-sans flex items-center">you can install CV when click
-            on
-            <Disc class="inline-block mx-1" fillColor="#fff" :size="22" />
-          </li>
-        </div>
-        <h5 class="text-base text-slate-900 font-medium mt-4">You can also access social networking or my location here
-        </h5>
-        <!-- buttons social -->
-        <div class="flex items-center gap-4 flex-wrap">
-          <a href="https://www.facebook.com/profile.php?id=100090009622327" target="_blank"
-            class="clicked no-underline rounded-full p-2 bg-white flex items-center justify-center">
-            <Facebook fillColor="#000" :size="24" />
-          </a>
-          <a href="https://www.linkedin.com/in/abdelrhman-ashraf-taoc-015b86265/" target="_blank"
-            class="clicked no-underline rounded-full p-2 bg-white flex items-center justify-center">
-            <Linkedin fillColor="#000" :size="24" />
-          </a>
-          <a href="https://twitter.com/AbdelrhmanQouay" target="_blank"
-            class="clicked no-underline rounded-full p-2 bg-white flex items-center justify-center">
-            <Twitter fillColor="#000" :size="24" />
-          </a>
-          <a href="https://github.com/Abdelrhman8Qouay" target="_blank"
-            class="clicked no-underline rounded-full p-2 bg-white flex items-center justify-center">
-            <Github fillColor="#000" :size="24" />
-          </a>
-          <a href="#" class="clicked no-underline rounded-full p-2 bg-white flex items-center justify-center">
-            <Disc fillColor="#000" :size="24" />
-          </a>
-          <button @click="showMap = !showMap" class="clicked rounded-full p-2 bg-white flex items-center justify-center">
-            <MapMarkerRadius fillColor="#000" :size="24" />
-          </button>
-        </div>
+          <FormKit :classes="{
+            input: 'bg-blue-500 hover:bg-blue-600 border-none text-white text-lg px-3 py-1'
+          }" type="submit" label="Submit your message" />
+        </FormKit>
       </div>
     </div>
 
-    <!-- End Contact Here -->
+
+    <div class="sochi">
+      <Title class="mb-1" txt="Let's Get Social" />
+      <h4 class="text-gray-600 text-sm font-light">Follow my online fan page on Facebook and profiles on Twitter, GitHub
+        and Linkedin.</h4>
+      <h4 class="text-gray-600 text-sm font-light">You can see map with this (show map)</h4>
+
+      <div class="flex gap-2 mt-4">
+        <Button txt-color="!text-[13px] !bg-blue-500 !text-white !font-bold" txt="facebook" :is-button="false"
+          :icoSize="20" ico="facebook" url="" />
+        <Button txt-color="!text-[13px] !bg-black-500 !text-white !font-bold" txt="twitter" :is-button="false"
+          :icoSize="20" ico="twitter" url="" />
+        <Button txt-color="!text-[13px] !bg-blue-500 !text-white !font-bold" txt="linkedin" :is-button="false"
+          :icoSize="20" ico="linkedin" url="" />
+        <Button txt-color="!text-[13px] !bg-gray-700 !text-white !font-bold" txt="github" :is-button="false" :icoSize="20"
+          ico="github" url="" />
+        <Button txt-color="!text-[13px] !text-white !font-bold !lowercase" txt="show map" :is-button="true"
+          @click="showMap = true" :icoSize="20" ico="map" />
+      </div>
+    </div>
+
   </div>
 
 
@@ -122,50 +85,24 @@ import Linkedin from 'vue-material-design-icons/Linkedin.vue';
 import Github from 'vue-material-design-icons/Github.vue';
 import Disc from 'vue-material-design-icons/Disc.vue';
 
+// Input Style
+const textInp = {
+  input: 'bg-transparent px-3 py-1 text-gray-600 border-b border-b-gray-600 text-lg font-bold placeholder:text-gray-400 outline-none w-full',
+  outer: 'bg-none',
+  inner: 'bg-none',
+  label: 'text-gray-600 text-xl font-bold',
+  help: 'text-gray-400 text-xs',
+  message: 'text-red-500 text-sm',
+  messages: 'text-red-500 text-sm',
+  prefixIcon:
+    'w-4 inline-block flex self-stretch',
+  suffixIcon:
+    'w-4 inline-block pr-3 p-3 flex self-stretch grow-0 shrink-0',
+};
+
 
 // handle the map show
 const showMap = ref(false);
 </script>
 
-<style lang="scss" scoped>
-/* Start Location Box  */
-// .contentLoc {
-//   background-color: #41464b;
-//   transform-origin: top;
-//   transform: scaleY(0);
-//   position: absolute;
-//   opacity: 0;
-//   width: 100%;
-//   min-height: 350px;
-//   visibility: hidden;
-//   padding-top: 1rem;
-//   padding-bottom: 1rem;
-//   transition: 0.4s;
-//   box-shadow: inset 0 0 10px 5px;
-// }
-
-// .contentLoc.active {
-//   transform: scaleY(1);
-//   visibility: visible;
-//   opacity: 1;
-//   position: static;
-// }
-// .contentLoc .card-body {
-//   height: 500px;
-// }
-
-// .contentLoc .card-body .mapBox {
-//   padding: 1.3rem;
-//   box-shadow: 0 0 12px black, inset 0 0 12px black;
-//   border-radius: 5px;
-//   height: 100%;
-// }
-
-// .contentLoc .card-body .mapBox iframe {
-//   width: 100%;
-//   height: 100%;
-//   filter: invert(100%);
-// }
-
-/* End Location Box  */
-</style>
+<style lang="scss" scoped></style>

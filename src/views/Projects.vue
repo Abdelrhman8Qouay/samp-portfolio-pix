@@ -1,172 +1,232 @@
 
-<script setup>
-import { ref, onMounted, watchEffect } from "vue";
-import { getImageUrl } from '@/models/work.js';
-// get components
-import Title from '@/components/Title.vue';
-import Button from '@/components/Button.vue';
-// get icons
-import Star from 'vue-material-design-icons/Star.vue';
-import CameraIris from 'vue-material-design-icons/CameraIris.vue';
-import Close from 'vue-material-design-icons/Close.vue';
-
-// get data
-import projects_front from "@/data/dataProjectsFront.json";
-import projects_full from "@/data/dataProjectsFull.json";
-const frontList = ref(null);
-const fullList = ref(null);
-onMounted(() => {
-    frontList.value = projects_front;
-    fullList.value = projects_full;
-})
-
-// Variables Option
-const badgeBackgroundColors = ref({
-    pending: "#f8a14b", // orange yellow
-    completed: "#ee4654", // red
-    updated: "#4668ee", // blue
-});
-
-const contentProjects = ref([
-    { content: frontList, title: "Front End" },
-    { content: fullList, title: "Full Stack" },
-]);
-
-const showImg = ref(false);
-const tvImg = ref(null);
-const showingImg = (imgSrc) => {
-    tvImg.value = imgSrc;
-    document.body.classList.add('noscroll');
-}
-watchEffect(() => showImg.value ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll'));
-
-// More Advanced Options
-const contentRecommended = ref([
-    frontList[2],
-    frontList[3],
-    frontList[4],
-]);
-</script>
 
 <template>
-    <div class="projects">
-        <!-- Start Projects  -->
-        <div class="projectsCap w-full min-h-screen p-5">
-            <!-- Title Row -->
-            <div class="container">
-                <div class="flex flex-row max-md:flex-col justify-between p-4">
-                    <!-- <Button class="uppercase font-serif" txt="Show All Repos" :is-button="false"
-                        url="https://github.com/Abdelrhman8Qouay?tab=repositories">
-                        <img src="../../src/assets/Icons/githupPixelArtPng.png" loading="lazy" class="w-8 h-8" />
-                    </Button> -->
-                    <!-- Repo Button -->
-                    <a href="https://github.com/Abdelrhman8Qouay?tab=repositories"
-                        class="repo-btn max-md:text-sm max-md:order-1">
-                        <img src="../../src/assets/Icons/githupPixelArtPng.png" loading="lazy" class="w-8 h-8 mx-2" /> Show
-                        All Repos
-                    </a>
-                    <Title class="flex-1 text-right" txt="Projects Made" />
+    <div class="projects my-[100px]">
+
+
+        <!-- Projects Content -->
+        <div class="container">
+
+            <Title txt="Projects List" />
+            <div class="w-full mb-[50px]">
+                <div class="text-gray-600 text-xl font-semibold">Filter By Tags</div>
+                <div class="mb-4 flex flex-wrap gap-2 " v-if="setTags.size && setTechs.size">
+                    <Button txt-color="!text-[13px] " txt="all" :is-button="true" :icoSize="20"
+                        @click="filteredList = getList, searchName = ''" />
+                    <Button v-for="(tag, index) in setTags" :key="index" txt-color="!text-[13px] " :txt="tag"
+                        :is-button="true" :icoSize="20" @click="filtering(tag, 'tags'), searchName = ''" />
+                </div>
+                <div class="text-gray-600 text-xl font-semibold">Filter By Technologies</div>
+                <div class="w-full mb-[150px] flex flex-wrap gap-2 " v-if="setTechs.size">
+                    <Button v-for="(tech, index) in setTechs" :key="index" txt-color="!text-[13px] " :txt="tech"
+                        :is-button="true" :icoSize="20" @click="filtering(tech, 'techs'), searchName = ''" />
                 </div>
             </div>
-            <!-- Title Row -->
 
-            <!-- Main Content Row -->
-            <div class="container">
-                <div class="testGrill flex flex-col gap-3">
-                    <!-- Content All Types Of Projects -->
-                    <div :key="i" v-for="(content, i) in contentProjects" class="contentTable p-2 my-4">
-                        <!-- Main Title Project Content -->
-                        <div class="font-bold text-3xl chars-text text-center relative [letter-spacing:0.3rem]">
-                            {{ content.title }}
+            <div class="text-gray-600 text-xl font-light mb-2"><small>Showing all projects. Use the filter to list them by
+                    tag or technology or by name.</small></div>
+
+            <div class="w-full h-max">
+                <div class="w-16 h-10">
+                    <Magnify class="absolute left-0 top-1/2 -translate-y-1/2 text-[rgba(255,255,255,0.72)] z-10" :size="24"
+                        fillColor="#fff" />
+                    <input type="text"
+                        class="px-2 py-1 pl-5 outline-none border-none bg-[#1f1f1f] text-[rgba(255,255,255,0.72)] text-sm font-extralight placeholder:text-[rgba(255,255,255,0.38)] placeholder:text-xs"
+                        placeholder="Search by name.." v-model="searchName" @input="filteringSearch(searchName)">
+                </div>
+            </div>
+
+            <div class="w-full flex flex-wrap gap-5 max-lg:gap-2 max-sm:justify-center" v-if="filteredList" v-auto-animate>
+
+                <ProjectBox class="h-[350px] cursor-pointer" style="flex: 0 0 32%;" v-for="(box, i) in filteredList"
+                    :list="box" :key="i" @click="showDetails = true, dataDetails = box, makeNoScroll(showDetails)" />
+
+            </div>
+
+            <div class="w-full flex flex-wrap justify-between" v-if="!filteredList">
+                <span class="text-blue-400 text-sm font-semibold">Loading...</span>
+            </div>
+        </div>
+
+    </div>
+
+    <transition name="bounce">
+        <div v-if="showDetails" class="fixed left-0 top-0 bg-[rgb(42,42,42,0.95)] w-screen h-screen z-[20000]">
+            <div v-if="dataDetails.status" v-show="showDetails" :class="statusColors[dataDetails.status]"
+                style="font-family: cursive;"
+                class="w-[300px] h-max py-2 flex justify-center items-center text-white font-bold absolute -right-16 top-10 rotate-45 z-20">
+                {{ dataDetails.status }}
+            </div>
+            <div class="container p-3 relative overflow-auto" v-show="showDetails" v-if="dataDetails">
+                <Close class="text-gray-300 hover:text-gray-100 text-lg mb-4" :size="38"
+                    @click="showDetails = false, makeNoScroll(showDetails)" />
+
+                <div class="w-full flex gap-2">
+                    <div class="w-3/4 p-1 flex flex-col gap-4">
+                        <div class="w-full aspect-video mx-auto">
+                            <img class="w-full h-full object-cover" :src="dataDetails.image == ''
+                                ? getImageUrl('assets/projects/undifBack.png')
+                                : getImageUrl(dataDetails.image)
+                                " loading="lazy" :alt="dataDetails.name">
                         </div>
-
-                        <!-- Project Content -->
-                        <div class="pros flex flex-wrap text-center justify-between gap-3">
-                            <div class="parent group max-w-[400px] max-h-[200px] [perspective:1000px]"
-                                v-for="(project, k) in content.content" :key="k" data-aos="zoom-in-up">
-                                <div
-                                    class="proBox relative w-full h-full [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-all duration-700 text-white">
-                                    <div class="imgProB inset-0 [backface-visibility:hidden] left-0 top-0 w-full h-full">
-                                        <!-- Project: Star & Info -->
-                                        <div v-if="project.info != ''"
-                                            class="z-20 py-2 absolute top-[3px] left-[3px] rounded-xl">
-                                            <Star class="inline-block mx-1 stroke-white [transform:rotate(55deg)]"
-                                                :fillColor="badgeBackgroundColors[project.info]" :size="40" />
-                                            <span
-                                                class="text-white [font-size:7px] absolute left-1/2 -translate-y-1/2 top-1/2 -translate-x-1/2">{{
-                                                    project.info }}</span>
-                                        </div>
-                                        <!-- Project Name -->
-                                        <div
-                                            class="absolute left-0 top-[calc(100%-45px)] h-[45px] uppercase w-full p-2 overflow-y-auto chars-bg text-start main_clear-text text-sm">
-                                            {{ project.name }}
-                                        </div>
-                                        <!-- Project Image -->
-                                        <img :src="project.image == ''
-                                            ? getImageUrl('assets/projects/undifBack.png')
-                                            : getImageUrl(project.image)
-                                            " class="w-full h-full object-cover" :alt="'project ' + k"
-                                            loading="lazy" />
-                                    </div>
-                                    <div
-                                        class="bodyCard absolute left-0 top-0 w-full h-full z-30 transition [backface-visibility:hidden] [transform:rotateY(180deg)] chars-bg">
-                                        <div class="relative flex flex-col w-full h-full justify-between overflow-auto">
-                                            <p class="flex-1 text-white">
-                                                {{ project.describe }}
-                                            </p>
-                                            <!-- Open Image -->
-                                            <button @click="showImg = !showImg, showingImg(project.image == ''
-                                                ? getImageUrl('assets/projects/undifBack.png')
-                                                : getImageUrl(project.image))"
-                                                class="h-[40px] w-[40px] p-3 bg-[#0000008f] hover:bg-[#3939398f] transition rounded-full hidden group-hover:flex justify-center items-center absolute left-1/2 -translate-y-1/2 top-1/2 -translate-x-1/2">
-                                                <CameraIris class="infinite-rotate" fillColor="#fff" :size="27" />
-                                            </button>
-                                            <div class="h-[45px] flex justify-between gap-2 p-2">
-                                                <!-- <a :href="project.viewPage" class="flex justify-center items-center">
-                                                    <Eye class="inline-block mx-1" fillColor="#fff" :size="20" /> View
-                                                </a>
-                                                <a :href="project.codePage" class="flex justify-center items-center"><Code
-                                                        class="inline-block mx-1" fillColor="#fff" :size="20" /> Code</a> -->
-                                                <Button v-if="project.viewPage" txt="View" :is-button="false"
-                                                    :url="project.viewPage" ico="eye" ico-color="#fff"
-                                                    txt-color="text-white">
-                                                </Button>
-                                                <Button v-if="project.codePage" txt="Code" :is-button="false"
-                                                    :url="project.codePage" ico="code" ico-color="#fff"
-                                                    txt-color="text-white">
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="text-gray-300 text-3xl font-semibold">{{ dataDetails.name }}</div>
+                        <div class="w-full px-4">
+                            <div class="text-gray-300 text-2xl font-semibold lined w-max mb-4">About this project</div>
+                            <div class="text-gray-300 text-sm font-extralight">{{ dataDetails.describe }}</div>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <Button txt-color="!text-xs !px-8" txt="Close" :is-button="true" @click="showDetails = false" />
+                        </div>
+                    </div>
+                    <div class="w-1/4 p-1">
+                        <div class="w-full mb-3">
+                            <div class="text-gray-300 text-xl font-semibold">Tags</div>
+                            <div class="mb-4 flex flex-wrap gap-2 ">
+                                <div v-for="(tag, i) in dataDetails.tags" :key="i"
+                                    class="bg-slate-500 px-2 py-1 text-white text-[13px] font-medium">{{ tag }}
                                 </div>
                             </div>
                         </div>
-
-                        <div class="dividing mt-3"></div>
+                        <div class="w-full mb-3">
+                            <div class="text-gray-300 text-xl font-semibold">Technologies</div>
+                            <div class="mb-4 flex flex-wrap gap-2 ">
+                                <div v-for="(lang, i) in dataDetails.langs" :key="i"
+                                    class="bg-slate-500 px-2 py-1 text-white text-[13px] font-medium">{{ lang }}
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="dataDetails.viewPage">
+                            <Button txt-color="!text-[13px] !w-full py-2 mb-3" txt="View" :is-button="false"
+                                :url="dataDetails.viewPage" ico="eye" icoColor="#fff" :icoSize="20" />
+                        </div>
+                        <div v-if="dataDetails.codePage">
+                            <Button txt-color="!text-[13px] !w-full py-2 mb-3" txt="Code" :is-button="false"
+                                :url="dataDetails.codePage" ico="code" icoColor="#fff" :icoSize="20" />
+                        </div>
                     </div>
-                    <!-- Content All Types Of Projects -->
                 </div>
             </div>
-            <!-- Main Content Row -->
         </div>
-        <!-- End Projects  -->
-
-        <!-- Show Projects Images Modal -->
-        <div v-if="showImg" @click.self="showImg = false"
-            class="fixed left-0 top-0 bg-[#000000a1] w-full h-full flex justify-center items-center z-50">
-            <div class="w-full relative">
-                <button @click="showImg = false"
-                    class="h-[50px] w-[50px] p-3 bg-[#0000008f] hover:bg-[#3939398f] transition rounded-full flex justify-center items-center absolute left-3 top-3">
-                    <Close fillColor="#fff" :size="32" />
-                </button>
-                <img class="w-full h-full object-cover" :src="tvImg" alt="shower images">
-            </div>
-        </div>
-    </div>
+    </transition>
 </template>
 
+
+<script setup>
+import { ref, onMounted, watchEffect } from "vue";
+import { getImageUrl, makeNoScroll } from '@/models/work.js';
+import { useRouter } from "vue-router";
+
+// get components
+import Title from '@/components/Title.vue';
+import ProjectBox from '@/components/ProjectBox.vue';
+import Button from '@/components/Button.vue';
+// get icons
+import Star from 'vue-material-design-icons/Star.vue';
+import Magnify from 'vue-material-design-icons/Magnify.vue';
+import Close from 'vue-material-design-icons/Close.vue';
+
+// get data
+import all_json_projects from "@/data/dataProjectsFront.json";
+// import projects_full from "@/data/dataProjectsFull.json";
+
+const getList = ref(null);
+const filteredList = ref(null);
+// ========================= get all tags & technologies =========================
+const arrTags = ref([]);
+const setTags = ref(new Set());
+const arrTechs = ref([]);
+const setTechs = ref(new Set());
+onMounted(() => {
+    getList.value = all_json_projects;
+    filteredList.value = all_json_projects;
+    getList.value.forEach((box) => {
+        arrTags.value.push(...box.tags);
+        arrTechs.value.push(...box.langs);
+    })
+    setTags.value = new Set(arrTags.value);
+    setTechs.value = new Set(arrTechs.value);
+
+    console.log(setTechs.value);
+})
+
+
+const searchName = ref('');
+function filteringSearch(toFilterBy) {
+    let tempArr = [...getList.value];
+    let filtered = tempArr.filter((item) => {
+        return item.name.includes(toFilterBy);
+    })
+    filteredList.value = filtered;
+}
+
+// ========================= box project details =========================
+const showDetails = ref(false);
+const dataDetails = ref(null);
+// Projects Status Colors
+const statusColors = ref({
+    pending: "bg-yellow-500 hover:bg-yellow-600", // orange yellow
+    done: "bg-red-500 hover:bg-red-600", // red
+    updated: "bg-blue-500 hover:bg-blue-600", // blue
+});
+
+// ========================= Filter Projects =========================
+function filtering(toFilterBy, what) {
+    let tempArr = [...getList.value];
+    let filtered = tempArr.filter((item) => {
+        if (what == 'tags') {
+            return item.tags.some(it => it == toFilterBy);
+        } else if (what == 'techs') {
+            return item.langs.some(it => it == toFilterBy);
+        }
+    })
+    filteredList.value = filtered;
+}
+
+</script>
+
+
+
 <style lang="scss" scoped>
-/* Start Projects  */
+// Animate Details Screen
+.bounce-enter-active {
+    animation: bounce-in 0.5s;
+    transform-origin: center;
+}
+
+.bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+    transform-origin: center;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scaleX(0) scaleY(0);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0);
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+
+/* max line text */
+.lined {
+    position: relative;
+
+    &::after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: rgb(209 213 219 / 1);
+        position: absolute;
+        left: 0;
+        top: 100%;
+    }
+}
 
 .repo-btn {
     text-transform: uppercase;

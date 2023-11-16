@@ -1,11 +1,13 @@
 [
 {
-    "name": "Calculator app 1",
+    "name": "Calculator site",
     "image": "assets/projects/Calculator1.png",
     "describe": "Simple Calculator with basics, For first time, I Used HTML & CSS & JavaScript.",
     "viewPage":"https://calculator1qouay.netlify.app/",
     "codePage":"https://github.com/Abdelrhman8Qouay/calculator-app-t1",
-    "info": "completed"
+    "status": "done",
+    "tags":[ "Frontend", "Learned On", "Logic", "No Frameworks"],
+    "langs": ["html", "css", "js"]
 },
 {
     "name": "Weather App Adv",
@@ -13,7 +15,9 @@
     "describe": "this is Weather from rest Api instead of the old weather using HTML & CSS & JavaScript.",
     "viewPage":"https://advweatherappapi.netlify.app/",
     "codePage":"https://github.com/Abdelrhman8Qouay/adv-weather-app",
-    "info": "updated"
+    "status": "updated",
+    "tags":[ "Animate", "Frontend", "Rest Api", "Logic", "No Frameworks"],
+    "langs": ["html", "css", "js"]
 },
 {
     "name": "Rest Countries Mentor",
@@ -21,7 +25,9 @@
     "describe": "this is an app show all countries with search and filtering from rest Api using HTML & CSS & JavaScript & VueJs (composition api) and vitejs.",
     "viewPage":"https://restcountriesapivite1.netlify.app/",
     "codePage":"https://github.com/Abdelrhman8Qouay/vite-countries-api-1",
-    "info": "updated"
+    "status": "updated",
+    "tags":[ "Frontend", "Template", "Rest Api", "Challenge"],
+    "langs": ["vue", "html", "css", "js"]
 },
 {
     "name": "Quiz App QACS",
@@ -29,7 +35,9 @@
     "describe": "this is an app for simple quiz for each tool and language programming",
     "viewPage":"https://quizappqouay.netlify.app/",
     "codePage":"https://github.com/Abdelrhman8Qouay/Quiz-APP-QACS",
-    "info": "completed"
+    "status": "done",
+    "tags":[ "Learned On", "Rest Api", "Frontend", "Logic", "No Frameworks", "Challenge"],
+    "langs": ["html", "css", "js"]
 },
 {
     "name": "ToDoList App",
@@ -37,15 +45,19 @@
     "describe": "Simple Todolist app, For first time, you can add the favorite tasks and work on it in another page alone",
     "viewPage":"https://master--todolistappwithvuetify.netlify.app/",
     "codePage":"https://github.com/Abdelrhman8Qouay/vite-todolist-with-vuetify",
-    "info": "completed"
+    "status": "done",
+    "tags":[ "Animate", "Frontend", "Learned On", "Rest Api", "Logic"],
+    "langs": ["vue", "vuetify", "html", "css", "js"]
 },
 {
-    "name": "ChatBot ( Globot )",
+    "name": "ChatBot [Globot]",
     "image": "assets/projects/Chatglobot1.png",
     "describe": "Simple ChatBot with some rules, Very simple as chatbot, I Used HTML & CSS & JavaScript and json.",
     "viewPage":"https://chatglobot1qouay.netlify.app/",
     "codePage":"https://github.com/Abdelrhman8Qouay/Globot-ChatBot",
-    "info": "completed"
+    "status": "done",
+    "tags":[ "Animate", "Frontend", "Learned On", "Rest Api", "Logic", "No Frameworks"],
+    "langs": ["html", "css", "js"]
 },
 {
     "name": "E,commerce Product Page",
@@ -53,7 +65,9 @@
     "describe": "E,commerce Page, with frontend mentor challenge I used HTML & CSS & JavaScript.",
     "viewPage":"https://qouaynt.github.io/E-commerce-product-page-Challenge-KD/",
     "codePage":"https://github.com/qouaynt/E-commerce-product-page-Challenge-KD",
-    "info": "completed"
+    "status": "done",
+    "tags":[ "Frontend", "E,commerce", "Template", "Rest Api", "Challenge"],
+    "langs": ["php", "mySql", "pdo", "html", "css", "js"]
 },
 {
     "name": "Tong Template",
@@ -61,13 +75,37 @@
     "describe": "without any css frameworks, I used for this Template HTML & CSS & JavaScript.",
     "viewPage":"https://qouaynt.github.io/TONG-template/",
     "codePage":"https://github.com/qouaynt/TONG-template",
-    "info": "completed"
+    "status": "done",
+    "tags":[ "Frontend", "No Frameworks", "Template"],
+    "langs": ["html", "css", "js"]
 },
 {
-    "name": "Video Template Page Youtube",
+    "name": "Cards Animated",
+    "image": "assets/projects/Cards_Animated.png",
+    "describe": "cards animated with (Kiven Powell). change this as master Pro 👌😄",
+    "viewPage":"https://cards-animated-vol.netlify.app/",
+    "codePage":"https://github.com/Abdelrhman8Qouay/cards-animated-vol",
+    "status": "done",
+    "tags":[ "Frontend", "Learned On", "Animate"],
+    "langs": ["scss", "html", "css", "js"]
+},
+{
+    "name": "E,commerce Website (Elzero Course)",
     "image": "",
-    "describe": "a simple template of videos for youtube",
+    "describe": "E,commerce Page, with vanilla PHP from ( Elzero Course ) on youtube",
     "viewPage":"",
-    "codePage":"https://github.com/qouaynt/show-video-template-of-youtube",
-    "info": "pending"
+    "codePage":"https://github.com/Abdelrhman8Qouay/eComm-Elzero-Project",
+    "status": "pending",
+    "tags":[ "Full Stack", "Learned On", "Backend", "Rest Api"],
+    "langs": ["php", "mySql", "pdo", "html", "css", "js"]
+},
+{
+    "name": "CG (chat-online)",
+    "image": "assets/projects/chat_online.png",
+    "describe": "Chatgloy: is chatbot app online with your system behind the scene with no control for any other expect the owner [and this because it simple app] with >> php(pure + PDO [db connection]) & HTML & css(Sass) & Js(pure)",
+    "viewPage":"",
+    "codePage":"https://github.com/Abdelrhman8Qouay/php-chatgloy-simp-fs",
+    "status": "done",
+    "tags":[ "Full Stack", "Backend", "Rest Api"],
+    "langs": ["php", "mySql", "pdo", "html", "css", "js", "scss"]
 }]

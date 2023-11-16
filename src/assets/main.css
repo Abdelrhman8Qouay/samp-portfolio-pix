@@ -2,22 +2,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 /* Pixel Google Font */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@layer url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 /* Base Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
+@layer url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --main: rgb(74 222 128 / 1);
-  --main-clear: rgb(74 222 128 / 1);
+  --main: #538fef;
+  --main-clear: #538fef;
   --white: #fff;
   --white-darken1: #d1d1d1;
   --dark: #000;
   --dark-whiter1: #1f1f1f;
 
   --roof-color: #41464b;
-  --ground-color: #1d2a35;
+  --ground-color: #e4e4e4;
   --back-chars: #043247;
 
   --hover-trans: 0.3s;
@@ -32,7 +33,9 @@
   font-family: "Raleway", sans-serif;
 }
 *::selection {
-  color: var(--main);
+  color: #fff;
+  font-weight: 600;
+  background: #41464b;
 }
 /* styling for scrollbar  */
 ::-webkit-scrollbar {
@@ -120,6 +123,7 @@ body {
 .clicked:active {
   box-shadow: unset;
 }
+
 
 /* for absolute and fixed position elements */
 .absolute-top {

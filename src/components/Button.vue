@@ -6,7 +6,7 @@
             :is="Icons">
         </component>{{ txt }}<slot></slot>
     </button>
-    <a v-else :title="txt"
+    <a v-else :title="txt" target="_blank"
         class="btn hover:shadow-md hover:shadow-black px-4 py-1 border-none transition flex justify-center items-center"
         :class="txtColor ? txtColor : 'main_clear-text'" :href="url">
         <component v-if="ico" class="mx-1 inline-block" :fillColor="icoColor ? icoColor : '#fff'"
@@ -23,8 +23,14 @@ import Email from 'vue-material-design-icons/Email.vue';
 import Message from 'vue-material-design-icons/Message.vue';
 import Phone from 'vue-material-design-icons/Phone.vue';
 import Disc from 'vue-material-design-icons/Disc.vue';
+import Map from 'vue-material-design-icons/Map.vue';
 import Eye from 'vue-material-design-icons/Eye.vue';
 import Code from 'vue-material-design-icons/Xml.vue';
+
+import Facebook from 'vue-material-design-icons/Facebook.vue';
+import Twitter from 'vue-material-design-icons/Twitter.vue';
+import Github from 'vue-material-design-icons/Github.vue';
+import Linkedin from 'vue-material-design-icons/Linkedin.vue';
 
 // get props values
 const props = defineProps({
@@ -45,8 +51,14 @@ else if (ico.value === 'email') Icons.value = Email;
 else if (ico.value === 'phone') Icons.value = Phone;
 else if (ico.value === 'message') Icons.value = Message;
 else if (ico.value === 'disc') Icons.value = Disc;
+else if (ico.value === 'map') Icons.value = Map;
 else if (ico.value === 'eye') Icons.value = Eye;
 else if (ico.value === 'code') Icons.value = Code;
+
+else if (ico.value === 'facebook') Icons.value = Facebook;
+else if (ico.value === 'twitter') Icons.value = Twitter;
+else if (ico.value === 'github') Icons.value = Github;
+else if (ico.value === 'linkedin') Icons.value = Linkedin;
 </script>
 
 <style lang="scss" scoped>
@@ -68,13 +80,10 @@ else if (ico.value === 'code') Icons.value = Code;
 }
 
 .btn {
-    // @include center;
     position: relative;
-    background: var(--ground-color);
-    // width: 200px;
-    // height: 60px;
+    background: #1f1f1f;
+    color: #fff;
     font-size: small;
-    // border-radius: 4px;
     font-family: 'Raleway', sans-serif;
     transition: .6s;
     overflow: hidden;
@@ -112,7 +121,8 @@ else if (ico.value === 'code') Icons.value = Code;
     }
 
     &:hover {
-        background: var(--roof-color);
+        background: #41464b;
+        color: #d0d0d0;
         cursor: pointer;
 
         &:before {
