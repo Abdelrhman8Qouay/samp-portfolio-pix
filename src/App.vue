@@ -9,22 +9,23 @@ import Footer from '@/components/Main/Footer.vue';
 <template>
   <Navbar v-once></Navbar>
 
-  <main class="w-full min-h-[calc(100vh-68px)]">
+  <main class="w-full min-h-[calc(100vh-68px)] relative">
 
     <router-view v-slot="{ Component }">
       <transition name="fade" appear>
         <component :is="Component" />
       </transition>
     </router-view>
+
   </main>
 
-  <Footer v-once></Footer>
+  <!-- data-aos="zoom-in-up" <<< if want to use aos transition -->
 </template>
 
 <style scoped>
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.3s ease-out, opacity 0.3s;
+  transition: all 0.6s ease-out, opacity 0.6s;
 }
 
 .slide-enter-to {

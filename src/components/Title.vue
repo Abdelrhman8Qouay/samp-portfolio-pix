@@ -1,5 +1,5 @@
 <template>
-    <div class="text-gray-900 text-5xl max-md:text-2xl font-semibold mb-4">{{ txt }}</div>
+    <div class="text-gray-300 text-5xl max-md:text-2xl font-semibold mb-4">{{ txt }}</div>
 </template>
 
 <script setup>

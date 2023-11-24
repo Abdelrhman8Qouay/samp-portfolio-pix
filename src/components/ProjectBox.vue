@@ -1,6 +1,6 @@
 <template>
-    <div class="box_card bg-white p-1 shadow-sm shadow-black hover:!scale-110 transition-transform relative overflow-hidden"
-        data-aos="zoom-in-up">
+    <div
+        class="box_card p-1 bg-white shadow-sm shadow-black hover:!scale-110 transition-transform relative overflow-hidden">
         <!-- Image -->
         <div class="w-full h-4/5">
             <img class="w-full h-full object-cover" :src="list.image == ''

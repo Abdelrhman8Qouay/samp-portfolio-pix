@@ -14,3 +14,13 @@ export function makeNoScroll(ifTrue) {
         document.body.classList.remove('noscroll');
     }
 }
+
+export function sleep(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+    /*Use like so*/
+    // async function timeSensativeAction() { // must be async func
+    //     // do something here
+    //      await sleep(5000) // wait 5 seconds
+    //     // continue on...
+    //   }
+}

@@ -2,12 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-/* Pixel Google Font */
-@layer url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-/* Base Google Font */
-@layer url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
+@layer url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap');
 
 :root {
   --main: #538fef;
@@ -18,7 +14,7 @@
   --dark-whiter1: #1f1f1f;
 
   --roof-color: #41464b;
-  --ground-color: #e4e4e4;
+  --ground-color: linear-gradient(145deg, #434649, #1e1d1d);
   --back-chars: #043247;
 
   --hover-trans: 0.3s;
@@ -28,9 +24,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'VT323', monospace; */
-  /* font-family: 'Roboto Slab', serif; */
-  font-family: "Raleway", sans-serif;
+  /* font-family: 'Orbitron', monospace; */
+  font-family: 'Roboto Condensed', sans-serif;
+  /* font-family: "Raleway", sans-serif; */
 }
 *::selection {
   color: #fff;
@@ -56,7 +52,9 @@
 
 
 body {
-  background: var(--ground-color);
+  background: var(--ground-color) fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;

@@ -3,72 +3,58 @@
 
         <!-- Start About Us  -->
         <div class="container my-8">
-            <div class="about w-full flex justify-center items-center h-max">
-                <div class="content roof-bg p-3 shadow-[#0000006d] shadow-md rounded-md" data-aos="zoom-in-up">
-                    <div class="imgGl"></div>
-                    <Title txt="About Us" where="center" />
-                    <p class="text-base text-white"><span class="text-xl font-semibold main-text block">i'am Software
-                            Engineer</span>,
-                        i'am Software Engineer more accurate Full Stack with ServerSide >> php(laravel framework) &
-                        ClientSide >>
-                        vue(vue2 || vue (composition api)) & anyTool css Designing.
-                        I am very passionate about improving my coding skills & developing websites. Working for myself to
-                        improve my
-                        skills.
-                    </p>
-                    <div class="flex flex-wrap">
-                        <p class="w-1/2 text-green-400">Age: <span class="text-white font-bold">{{ ownerAge }}</span></p>
-                        <p class="w-1/2 text-green-400">Email: <span class="text-white font-bold">qouay555@gmail.com</span>
-                        </p>
-                        <p class="w-1/2 text-green-400">Phone: <span class="text-white font-bold">0102 789 3028</span></p>
-                        <p class="w-1/2 text-green-400">Place: <span class="text-white font-bold">Cairo-Egypt</span></p>
+            <Title txt="About Us" where="center" />
+            <div class="flex justify-between max-lg:flex-col">
+                <p class="max-lg:order-1 text-base font-semibold text-slate-400">
+                    Hi, my name is Abdelrhman and I am your expert in Frontend development. <br>
+                    <br>
+                    💻 Specialization: Vue.js and Nuxt.js <br>
+                    🔥 Skills: HTML/CSS, JavaScript/TypeScript, Rest API, MySQL, PHP/Laravel <br>
+                    🌟 Experience: 2 years of commercial experience <br>
+                    🚀 Goal: Provide high quality products and exceptional customer service <br>
+                    🧠 Training: Continually updating my knowledge of the latest technologiesI <br>
+                    <br>
+                </p>
+                <div class="w-[150px] h-[150px] p-1 relative">
+                    <div class="w-[114%] h-[114%] z-10 absolute left-[-10px] top-[-10px]">
+                        <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/601220/f12e03ad412fa9c27e6d1443b2d1b1028dbf2faa.png"
+                            class="w-full h-full object-cover" alt="owner">
+                    </div>
+                    <div class="w-full h-full z-20">
+                        <img src="@/assets/me_pixel.jpg" class="w-full h-full object-cover" alt="owner">
                     </div>
                 </div>
             </div>
+            <p class="text-base font-semibold text-slate-400">
+                I feel comfortable on my ability to turn ideas into well-structured code. My goal is to help you achieve
+                your goals by providing innovative solutions and supporting the project after implementation. I enjoy
+                working both independently and as part of a team, and I always strive for clean and efficient code. <br>
+                <br>
+                If you are looking for a professional developer who can turn your ideas into reality, contact me. Let's
+                start creating something unique and valuable today! <br>
+                <br>
+            </p>
         </div>
         <!-- End About Us  -->
 
         <!-- Start Skills  -->
-        <div class=" p-3">
-            <div class="container mb-4">
-                <Title txt="Technolog Tools" where="center" />
-                <div class="staticSkills flex flex-wrap justify-between py-5 gap-14">
-                    <div v-for="(skill, i) in skillsList" :key="i" data-aos="zoom-in-up"
-                        class="boxS w-28 h-28 rounded-full flex flex-col items-center justify-center p-2 relative"
-                        :title="skill.describe">
-                        <div class="w-9 h-9 block">
-                            <img class="w-full h-full object-contain" :src="getImageUrl(skill.image)" :alt="skill.name">
-                        </div>
+        <div class="container my-7 p-3">
+            <Title txt="Technolog Tools" where="center" />
+            <div class="staticSkills flex flex-wrap py-5 gap-10">
+                <div v-for="(skill, i) in skillsList" :key="i"
+                    class="w-[220px] h-max rounded-md flex flex-col justify-between p-5 border border-slate-400"
+                    :title="skill.describe">
+                    <div class="w-7 h-7 block">
+                        <img class="w-full h-full object-contain" :src="getImageUrl(skill.image)" :alt="skill.name">
                     </div>
+                    <div class="text-slate-400 text-base font-medium mb-2">{{ skill.name }}</div>
+                    <div class="text-slate-500 text-xs font-extralight">{{ skill.describe }}</div>
                 </div>
             </div>
         </div>
         <!-- End Skills  -->
 
-        <!-- Start Education Box -->
-        <div class="container my-4">
-            <div class="block w-full">
-                <Title txt="Education" where="center" />
-                <p class="text-center text-white">Education Is Not The Learning Of Facts, But The Training Of The Mind To
-                    Think.
-                </p>
-            </div>
-            <div class="card w-full h-max block shadow-md shadow-black my-2" data-aos="fade-right">
-                <div class="card_body w-full flex">
-                    <div class="img_card h-full w-1/4">
-                        <img class="w-full h-full object-cover"
-                            src="https://www.elwekalanews.net/UploadCache/libfiles/13/5/600x338o/737.jpg" loading="lazy"
-                            alt="the institute">
-                    </div>
-                    <div class="info_card flex-1 m-3">
-                        <h5 class="main-text font-bold">Bachelor of Business Administration</h5>
-                        <p class="main_clear-text font-semibold">College of engineering, computer science and management</p>
-                        <span class="text-red-400 font-medium">2021-2025 | Pursuing</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Education Box -->
+        <Footer class="mt-8" v-once></Footer>
     </div>
 </template>
 
@@ -76,6 +62,7 @@
 import { ref, onMounted } from "vue";
 import { getImageUrl } from '@/models/work.js';
 // get components
+import Footer from '@/components/Main/Footer.vue';
 import Title from '@/components/Title.vue';
 import Button from '@/components/Button.vue';
 // get icons
@@ -240,4 +227,5 @@ const ownerAge = ref(
         flex-direction: column;
         margin-top: 7px;
     }
-}</style>
+}
+</style>

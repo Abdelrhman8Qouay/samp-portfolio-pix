@@ -1,52 +1,56 @@
 
 
 <template>
-  <div class="contact container my-[100px]">
-    <div class="seding w-full mb-20">
-      <Title txt="Get In Touch" />
-      <div class="max-w-[700px] px-4">
-        <FormKit type="form" id="form-contact" submit-label="s" action="https://formspree.io/f/xwkjpygk" method="POST">
-          <div class="mb-3">
-            <FormKit type="text" name="name" prefix-icon="avatarMan" placeholder="Your Name" validation="required"
-              :classes="textInp" />
-          </div>
-          <div class="mb-3">
-            <FormKit type="text" name="email" prefix-icon="email" placeholder="Your Email" validation="required|email"
-              :classes="textInp" />
-          </div>
-          <div class="mb-3">
-            <FormKit type="textarea" name="message" placeholder="Your Message here" validation="required|length:2,300"
-              :classes="textInp" />
-          </div>
+  <div class="contact">
+    <div class="container my-[100px]">
+      <div class="seding w-full mb-20">
+        <Title txt="Get In Touch" />
+        <div class="max-w-[700px] px-4">
+          <FormKit type="form" id="form-contact" submit-label="&nbsp;" action="https://formspree.io/f/xwkjpygk"
+            method="POST">
+            <div class="mb-3">
+              <FormKit type="text" name="name" prefix-icon="avatarMan" placeholder="Your Name" validation="required"
+                :classes="textInp" />
+            </div>
+            <div class="mb-3">
+              <FormKit type="text" name="email" prefix-icon="email" placeholder="Your Email" validation="required|email"
+                :classes="textInp" />
+            </div>
+            <div class="mb-3">
+              <FormKit type="textarea" name="message" placeholder="Your Message &nldr;" validation="required|length:2,300"
+                :classes="textInp" />
+            </div>
 
-          <FormKit :classes="{
-            input: 'bg-blue-500 hover:bg-blue-600 border-none text-white text-lg px-3 py-1'
-          }" type="submit" label="Submit your message" />
-        </FormKit>
+            <FormKit :classes="{
+              input: 'bg-blue-500 hover:bg-blue-600 border-none text-white text-lg px-3 py-1'
+            }" type="submit" label="Submit your message" />
+          </FormKit>
+        </div>
+      </div>
+
+
+      <div class="sochi">
+        <Title class="mb-1" txt="Let's Get Social" />
+        <h4 class="text-gray-600 text-sm font-light">Follow my online fan page on Facebook and profiles on Twitter, GitHub
+          and Linkedin.</h4>
+        <h4 class="text-gray-600 text-sm font-light">You can see map with this (show map)</h4>
+
+        <div class="flex gap-2 mt-4">
+          <Button txt-color="!text-[13px] !bg-blue-500 !text-white !font-bold" txt="facebook" :is-button="false"
+            :icoSize="20" ico="facebook" url="" />
+          <Button txt-color="!text-[13px] !bg-black-500 !text-white !font-bold" txt="twitter" :is-button="false"
+            :icoSize="20" ico="twitter" url="" />
+          <Button txt-color="!text-[13px] !bg-blue-500 !text-white !font-bold" txt="linkedin" :is-button="false"
+            :icoSize="20" ico="linkedin" url="" />
+          <Button txt-color="!text-[13px] !bg-gray-700 !text-white !font-bold" txt="github" :is-button="false"
+            :icoSize="20" ico="github" url="" />
+          <Button txt-color="!text-[13px] !text-white !font-bold !lowercase" txt="show map" :is-button="true"
+            @click="showMap = true" :icoSize="20" ico="map" />
+        </div>
       </div>
     </div>
 
-
-    <div class="sochi">
-      <Title class="mb-1" txt="Let's Get Social" />
-      <h4 class="text-gray-600 text-sm font-light">Follow my online fan page on Facebook and profiles on Twitter, GitHub
-        and Linkedin.</h4>
-      <h4 class="text-gray-600 text-sm font-light">You can see map with this (show map)</h4>
-
-      <div class="flex gap-2 mt-4">
-        <Button txt-color="!text-[13px] !bg-blue-500 !text-white !font-bold" txt="facebook" :is-button="false"
-          :icoSize="20" ico="facebook" url="" />
-        <Button txt-color="!text-[13px] !bg-black-500 !text-white !font-bold" txt="twitter" :is-button="false"
-          :icoSize="20" ico="twitter" url="" />
-        <Button txt-color="!text-[13px] !bg-blue-500 !text-white !font-bold" txt="linkedin" :is-button="false"
-          :icoSize="20" ico="linkedin" url="" />
-        <Button txt-color="!text-[13px] !bg-gray-700 !text-white !font-bold" txt="github" :is-button="false" :icoSize="20"
-          ico="github" url="" />
-        <Button txt-color="!text-[13px] !text-white !font-bold !lowercase" txt="show map" :is-button="true"
-          @click="showMap = true" :icoSize="20" ico="map" />
-      </div>
-    </div>
-
+    <Footer class="mt-8" v-once></Footer>
   </div>
 
 
@@ -74,6 +78,7 @@
 import { ref } from "vue";
 import { getImageUrl } from '@/models/work.js'
 // get components
+import Footer from '@/components/Main/Footer.vue';
 import Inputing from '@/components/Input.vue';
 import Title from '@/components/Title.vue';
 import Button from '@/components/Button.vue';

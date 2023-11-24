@@ -100,6 +100,16 @@
     "langs": ["php", "mySql", "pdo", "html", "css", "js"]
 },
 {
+    "name": "Typing Racer",
+    "image": "assets/projects/TypingRacer1.png",
+    "describe": "sample typing racer app with pure frontend tools, some logics is missing with this game app [as sample app]",
+    "viewPage":"https://typingracer1.netlify.app/",
+    "codePage":"https://github.com/Abdelrhman8Qouay/typing_racer",
+    "status": "done",
+    "tags":[ "Frontend", "Learned On", "Game", "Animate", "Logic", "No Frameworks"],
+    "langs": ["html", "css", "js", "scss"]
+},
+{
     "name": "CG (chat-online)",
     "image": "assets/projects/chat_online.png",
     "describe": "Chatgloy: is chatbot app online with your system behind the scene with no control for any other expect the owner [and this because it simple app] with >> php(pure + PDO [db connection]) & HTML & css(Sass) & Js(pure)",

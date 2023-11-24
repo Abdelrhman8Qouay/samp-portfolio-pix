@@ -6,7 +6,7 @@ const madeIn = ref(new Date().getFullYear());
 </script>
 
 <template>
-    <div class="parent w-full p-3 border-t-2 border-t-gray-400">
+    <div class="parent w-full p-3 border-t-2 ">
         <div class="container h-full">
             <nav class="nav w-full flex justify-between items-center gap-5 h-full max-md:flex-col">
                 <div class="flex justify-start items-center gap-5 max-md:order-1">
@@ -28,8 +28,4 @@ const madeIn = ref(new Date().getFullYear());
     </div>
 </template>
 
-<style lang="scss" scoped>
-.parent {
-    background: var(--roof-color);
-}
-</style>
+<style lang="scss" scoped></style>

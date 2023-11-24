@@ -6,16 +6,19 @@ const opened = ref(false);
 </script>
 
 <template>
-    <nav>
+    <nav class="">
         <div class="w-full h-max p-3 absolute top-0 left-0 z-[30000] flex items-center justify-end">
             <Menu fillColor="#fff" :size="50" @click="opened = !opened" class="transition-transform ease-in duration-200"
                 :class="{ 'rotate-180': opened }" />
         </div>
 
         <transition name="fade">
-            <div v-if="opened" class="w-full h-full fixed top-0 left-0 bg-[rgba(72,72,72,0.85)] z-[28000]">
+            <div v-if="opened" class="w-full h-full fixed top-0 left-0 bg-[rgba(72,72,72,1)] z-[28000]">
                 <div class="nav w-full h-full mx-auto flex flex-col items-center gap-5 pt-20 p-7">
                     <RouterLink :class="$route.path === '/' ? 'active' : ''" to="/" @click="opened = false">Home
+                    </RouterLink>
+                    <RouterLink :class="$route.path === '/about' ? 'active' : ''" to="/about" @click="opened = false">
+                        About
                     </RouterLink>
                     <RouterLink :class="$route.path === '/contact' ? 'active' : ''" to="/contact" @click="opened = false">
                         Contact
@@ -30,9 +33,60 @@ const opened = ref(false);
 </template>
 
 <style lang="scss" scoped>
-.parent {
-    // background: linear-gradient(45deg, var(--roof-color), var(--ground-color));
-    background: var(--roof-color);
+.fade-enter-active {
+    transform-origin: top;
+    animation: openNav 2.5s cubic-bezier(.5, .20, .20, -0.10);
+    z-index: 28000;
+}
+
+.fade-leave-active {
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.38s ease-in;
+    z-index: 28000;
+}
+
+.fade-enter-from {
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+// .fade-leave-to {
+
+// }
+
+@keyframes openNav {
+    0% {
+        transform: scaleY(0);
+    }
+
+    10% {
+        transform: scaleY(1);
+    }
+
+    20% {
+        transform: scaleY(0.89);
+    }
+
+    30% {
+        transform: scaleY(1);
+    }
+
+    40% {
+        transform: scaleY(0.99);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+
+    70% {
+        transform: scaleY(1);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
 }
 
 .active-nav {
@@ -42,6 +96,9 @@ const opened = ref(false);
 }
 
 .nav {
+    $color: #6e6e6e;
+    $active_color: #fff;
+
     a {
         font-size: 30px;
         transition: var(--hover-trans);
@@ -49,29 +106,26 @@ const opened = ref(false);
         text-decoration: none;
         background: transparent;
         border-radius: 7px;
-        width: 100%;
+        margin: 0 auto 0 auto;
         height: max-content;
         padding: 5px 15px;
         z-index: 10;
-        color: #fff;
+        color: $color;
 
         &::before {
             content: '';
             width: 100%;
-            height: 100%;
-            transform-origin: center;
-            transform: scaleY(0);
-            transition: transform 0.3s ease-out;
-            background: #323539d5;
+            height: 2px;
+            background: $color;
             position: absolute;
             left: 0;
-            top: 0;
-            z-index: -1;
+            top: 100%;
+            z-index: 0;
         }
 
         &:hover {
             // transform: translateY(-5px) scale(1.10);
-            color: #fff;
+            color: $active_color;
 
             &::before {
                 transform: scaleY(1);
@@ -79,7 +133,7 @@ const opened = ref(false);
         }
 
         &.active {
-            color: #538fef;
+            color: $active_color;
             font-weight: 600;
         }
     }

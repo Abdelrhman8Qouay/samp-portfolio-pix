@@ -9,30 +9,32 @@
 
             <Title txt="Projects List" />
             <div class="w-full mb-[50px]">
-                <div class="text-gray-600 text-xl font-semibold">Filter By Tags</div>
+                <div class="text-gray-400 text-xl font-semibold">Filter By Tags</div>
                 <div class="mb-4 flex flex-wrap gap-2 " v-if="setTags.size && setTechs.size">
                     <Button txt-color="!text-[13px] " txt="all" :is-button="true" :icoSize="20"
                         @click="filteredList = getList, searchName = ''" />
                     <Button v-for="(tag, index) in setTags" :key="index" txt-color="!text-[13px] " :txt="tag"
                         :is-button="true" :icoSize="20" @click="filtering(tag, 'tags'), searchName = ''" />
                 </div>
-                <div class="text-gray-600 text-xl font-semibold">Filter By Technologies</div>
+                <div class="text-gray-400 text-xl font-semibold">Filter By Technologies</div>
                 <div class="w-full mb-[150px] flex flex-wrap gap-2 " v-if="setTechs.size">
                     <Button v-for="(tech, index) in setTechs" :key="index" txt-color="!text-[13px] " :txt="tech"
                         :is-button="true" :icoSize="20" @click="filtering(tech, 'techs'), searchName = ''" />
                 </div>
             </div>
 
-            <div class="text-gray-600 text-xl font-light mb-2"><small>Showing all projects. Use the filter to list them by
+            <div class="text-gray-400 text-xl font-light mb-2"><small>Showing all projects. Use the filter to list them by
                     tag or technology or by name.</small></div>
 
             <div class="w-full h-max">
-                <div class="w-16 h-10">
-                    <Magnify class="absolute left-0 top-1/2 -translate-y-1/2 text-[rgba(255,255,255,0.72)] z-10" :size="24"
-                        fillColor="#fff" />
+                <div class="w-16 h-10 relative">
+                    <label for="searchId" class="absolute left-1 top-[40%] -translate-y-1/2 z-10">
+                        <Magnify :size="18" fillColor="rgba(255,255,255,0.72)" />
+                    </label>
                     <input type="text"
-                        class="px-2 py-1 pl-5 outline-none border-none bg-[#1f1f1f] text-[rgba(255,255,255,0.72)] text-sm font-extralight placeholder:text-[rgba(255,255,255,0.38)] placeholder:text-xs"
-                        placeholder="Search by name.." v-model="searchName" @input="filteringSearch(searchName)">
+                        class="px-2 py-1 pl-7 outline-none border-none bg-[#1f1f1f] text-[rgba(255,255,255,0.72)] text-sm font-extralight placeholder:text-[rgba(255,255,255,0.38)] placeholder:text-xs"
+                        placeholder="Search by name.." v-model="searchName" @input="filteringSearch(searchName)"
+                        id="searchId">
                 </div>
             </div>
 
@@ -48,6 +50,8 @@
             </div>
         </div>
 
+
+        <Footer class="mt-8" v-once></Footer>
     </div>
 
     <transition name="bounce">
@@ -75,7 +79,8 @@
                             <div class="text-gray-300 text-sm font-extralight">{{ dataDetails.describe }}</div>
                         </div>
                         <div class="flex justify-end items-center">
-                            <Button txt-color="!text-xs !px-8" txt="Close" :is-button="true" @click="showDetails = false" />
+                            <Button txt-color="!text-xs !px-8" txt="Close" :is-button="true"
+                                @click="showDetails = false, makeNoScroll(showDetails)" />
                         </div>
                     </div>
                     <div class="w-1/4 p-1">
@@ -117,6 +122,7 @@ import { getImageUrl, makeNoScroll } from '@/models/work.js';
 import { useRouter } from "vue-router";
 
 // get components
+import Footer from '@/components/Main/Footer.vue';
 import Title from '@/components/Title.vue';
 import ProjectBox from '@/components/ProjectBox.vue';
 import Button from '@/components/Button.vue';
