@@ -245,17 +245,6 @@ function filtering(toFilterBy, what) {
     transition: var(--hover-trans);
 }
 
-.projectsCap {
-    background: url(@/assets/gif/back_projects.jpg) fixed no-repeat;
-    background-size: cover;
-
-    .proBox {
-        border: 8px solid var(--back-chars);
-        flex: 1 0 400px;
-        // transform-style: preserve-3d;
-    }
-}
-
 .infinite-rotate {
     transition: var(--hover-trans);
     animation: unset;
