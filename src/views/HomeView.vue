@@ -3,7 +3,8 @@
   <div class="home bg-black w-full">
 
     <div class="landing w-full h-screen relative">
-      <div class="backgroundPage w-full h-full">
+
+      <!-- <div class="backgroundPage w-full h-full">
         <video class="w-full h-full object-cover" autoplay loop muted>
           <source
             src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/601220/efb2dbf151980f659cc108ce5b323be81df631c6.webm"
@@ -13,15 +14,14 @@
             type="video/mp4">
           sorry this browser can't support this tag
         </video>
-      </div>
+      </div> -->
 
 
       <div
         class="console absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 p-1 border border-[#4f7391] bg-[#525252a2]">
         <div class="border-4 border-[#4f7391] rounded-md p-2 max-w-lg">
           <p class="para_console then text-[#84accd] text-base font-semibold" style="font-family: none;">Welcome dear, my
-            name is Abdelrhman and I am
-            your expert in Frontend development.</p>
+            name is Abdelrhman and I am your expert in Software, and Frontend development.</p>
         </div>
       </div>
 
@@ -63,6 +63,13 @@ onMounted(() => {
       } else await sleep(100);
     }
   }, 700);
+
+  const landingBg = document.querySelector(".landing")
+  document.addEventListener('mousemove', (e) => {
+    // animate background
+    landingBg.style.backgroundPositionX = e.pageX / -4 + "px";
+    landingBg.style.backgroundPositionY = e.pageY / -4 + "px";
+  })
 })
 </script>
 
@@ -74,6 +81,13 @@ onMounted(() => {
 }
 
 /* Landing Start */
+.landing {
+  background: #222;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
 .console {
   animation: showConsole 0.7s 0.5s ease-in-out;
   transform-origin: left;
@@ -89,7 +103,7 @@ onMounted(() => {
 
 @keyframes showLine {
   0% {
-    content: '.';
+    content: ' ';
   }
 
   100% {

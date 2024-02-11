@@ -1,13 +1,13 @@
 <template>
-    <button v-if="isButton" :title="txt"
-        class="btn hover:shadow-md hover:shadow-black px-4 py-1 border-none transition flex justify-center items-center uppercase"
+    <button v-if="isButton"
+        class="btn hover:shadow-md hover:shadow-black px-4 py-1 max-md:!text-xs max-md:!font-extralight border-none transition flex justify-center items-center uppercase"
         :class="txtColor ? txtColor : 'main_clear-text'">
         <component v-if="ico" class="mx-1 inline-block" :fillColor="icoColor ? icoColor : '#fff'" :size="icoSize"
             :is="Icons">
         </component>{{ txt }}<slot></slot>
     </button>
-    <a v-else :title="txt" target="_blank"
-        class="btn hover:shadow-md hover:shadow-black px-4 py-1 border-none transition flex justify-center items-center"
+    <a v-else target="_blank"
+        class="btn hover:shadow-md hover:shadow-black px-4 py-1 max-md:!text-xs max-md:!font-extralight border-none transition flex justify-center items-center"
         :class="txtColor ? txtColor : 'main_clear-text'" :href="url">
         <component v-if="ico" class="mx-1 inline-block" :fillColor="icoColor ? icoColor : '#fff'"
             :size="icoSize ? icoSize : 24" :is="Icons">

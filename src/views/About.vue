@@ -2,7 +2,7 @@
     <div class="about_page">
 
         <!-- Start About Us  -->
-        <div class="container my-8">
+        <div class="container my-8 max-lg:p-4">
             <Title txt="About Us" where="center" />
             <div class="flex justify-between max-lg:flex-col">
                 <p class="max-lg:order-1 text-base font-semibold text-slate-400">
@@ -15,15 +15,15 @@
                     🧠 Training: Continually updating my knowledge of the latest technologiesI <br>
                     <br>
                 </p>
-                <div class="w-[150px] h-[150px] p-1 relative">
+                <!-- <div class="w-[150px] h-[150px] p-1 relative max-lg:mx-auto max-lg:mb-2">
                     <div class="w-[114%] h-[114%] z-10 absolute left-[-10px] top-[-10px]">
-                        <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/601220/f12e03ad412fa9c27e6d1443b2d1b1028dbf2faa.png"
+                        <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/570/c6a479fae8979bc9c1a02378e488e3ce06b52cb1.png"
                             class="w-full h-full object-cover" alt="owner">
                     </div>
                     <div class="w-full h-full z-20">
                         <img src="@/assets/me_pixel.jpg" class="w-full h-full object-cover" alt="owner">
                     </div>
-                </div>
+                </div> -->
             </div>
             <p class="text-base font-semibold text-slate-400">
                 I feel comfortable on my ability to turn ideas into well-structured code. My goal is to help you achieve
@@ -40,7 +40,7 @@
         <!-- Start Skills  -->
         <div class="container my-7 p-3">
             <Title txt="Technolog Tools" where="center" />
-            <div class="staticSkills flex flex-wrap py-5 gap-10">
+            <div class="staticSkills flex flex-wrap max-md:justify-around py-2 gap-6">
                 <div v-for="(skill, i) in skillsList" :key="i"
                     class="w-[220px] h-max rounded-md flex flex-col justify-between p-5 border border-slate-400"
                     :title="skill.describe">
@@ -48,7 +48,6 @@
                         <img class="w-full h-full object-contain" :src="getImageUrl(skill.image)" :alt="skill.name">
                     </div>
                     <div class="text-slate-400 text-base font-medium mb-2">{{ skill.name }}</div>
-                    <div class="text-slate-500 text-xs font-extralight">{{ skill.describe }}</div>
                 </div>
             </div>
         </div>

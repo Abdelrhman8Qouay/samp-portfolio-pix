@@ -70,16 +70,6 @@
     "langs": ["php", "mySql", "pdo", "html", "css", "js"]
 },
 {
-    "name": "Tong Template",
-    "image": "assets/projects/TongTem.png",
-    "describe": "without any css frameworks, I used for this Template HTML & CSS & JavaScript.",
-    "viewPage":"https://qouaynt.github.io/TONG-template/",
-    "codePage":"https://github.com/qouaynt/TONG-template",
-    "status": "done",
-    "tags":[ "Frontend", "No Frameworks", "Template"],
-    "langs": ["html", "css", "js"]
-},
-{
     "name": "Cards Animated",
     "image": "assets/projects/Cards_Animated.png",
     "describe": "cards animated with (Kiven Powell). change this as master Pro 👌😄",
@@ -118,4 +108,15 @@
     "status": "done",
     "tags":[ "Full Stack", "Backend", "Rest Api"],
     "langs": ["php", "mySql", "pdo", "html", "css", "js", "scss"]
+}
+,
+{
+    "name": "Tic Tac Toe [XO Game]",
+    "image": "assets/projects/TicTacToeOOP.png",
+    "describe": "TicTacToe: a web game created with (OOP) and Js(pure), you can play with ai{this ai with immediate level created} or with your friend, a sample app created with💖.",
+    "viewPage":"https://tic-tac-oopweb-qoua.netlify.app/",
+    "codePage":"https://github.com/Abdelrhman8Qouay/tic-tac-toe-oopweb",
+    "status": "done",
+    "tags":[ "No Frameworks", "Game", "Logic", "Challenge", "OOP"],
+    "langs": ["html", "css", "js"]
 }]

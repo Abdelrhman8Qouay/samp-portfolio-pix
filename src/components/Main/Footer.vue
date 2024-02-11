@@ -6,26 +6,27 @@ const madeIn = ref(new Date().getFullYear());
 </script>
 
 <template>
-    <div class="parent w-full p-3 border-t-2 ">
+    <div class="parent w-full p-3">
         <div class="container h-full">
-            <nav class="nav w-full flex justify-between items-center gap-5 h-full max-md:flex-col">
-                <div class="flex justify-start items-center gap-5 max-md:order-1">
-                    <!-- <a href="https://www.facebook.com/profile.php?id=100090009622327" target="_blank" class="text-white">
-                        <img class="w-9 h-9 rounded-full hover:bg-opacity-30" src="@/assets/bussin_logo.png"
-                            alt="owner avatar">
-                    </a> -->
-                    <!-- Copyright -->
-                    <div class="text-start p-1 text-white">
-                        © {{ madeIn }} Copyright:
-                        <a class="main-text hover:text-cyan-300 transition"
-                            href="https://www.facebook.com/profile.php?id=100090009622327">Abdelrhman
-                            Qouay</a> & madeWith 💖
-                    </div>
-                    <!-- Copyright -->
+            <div class="flex justify-between items-center gap-5 w-full">
+                <!-- Copyright -->
+                <div class="text-start p-1 text-white font-light text-sm flex flex-col">
+                    © {{ madeIn }} Copyright:
+                    <a class="text-gray-400 hover:text-white text-base transition"
+                        href="https://www.facebook.com/profile.php?id=100090009622327">Abdelrhman
+                        Qouay</a>
                 </div>
-            </nav>
+                <!-- Copyright -->
+
+                <div class="">
+                    <a href="https://www.facebook.com/profile.php?id=100090009622327" target="_blank" class="text-white">
+                        <img class="w-8 aspect-square object-cover hover:opacity-70 transition-all" src="@/assets/logo.png"
+                            alt="owner avatar">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

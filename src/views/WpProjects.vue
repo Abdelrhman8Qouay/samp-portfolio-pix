@@ -1,34 +1,25 @@
 
 
 <template>
-    <div class="projects">
+    <div class="projects my-[100px]">
 
 
         <!-- Projects Content -->
         <div class="container">
 
-            <Title txt="Projects List" />
+            <Title txt="Wordpress List" />
             <div class="w-full mb-[50px]">
                 <div class="text-gray-400 text-xl font-semibold">Filter By Tags</div>
                 <div class="mb-4 flex flex-wrap gap-2 " v-if="setTags.size && setTechs.size">
-                    <div class="tooltip">
-                        <Button txt-color="!text-[13px] " txt="all" :is-button="true" :icoSize="20"
-                            @click="filteredList = getList, searchName = ''" />
-                        <span class="tooltip_text">all</span>
-                    </div>
-                    <div class="tooltip" v-for="(tag, index) in setTags" :key="index">
-                        <Button txt-color="!text-[13px] " :txt="tag" :is-button="true" :icoSize="20"
-                            @click="filtering(tag, 'tags'), searchName = ''" />
-                        <span class="tooltip_text">{{ tag.toLowerCase() }}</span>
-                    </div>
+                    <Button txt-color="!text-[13px] " txt="all" :is-button="true" :icoSize="20"
+                        @click="filteredList = getList, searchName = ''" />
+                    <Button v-for="(tag, index) in setTags" :key="index" txt-color="!text-[13px] " :txt="tag"
+                        :is-button="true" :icoSize="20" @click="filtering(tag, 'tags'), searchName = ''" />
                 </div>
                 <div class="text-gray-400 text-xl font-semibold">Filter By Technologies</div>
                 <div class="w-full mb-[150px] flex flex-wrap gap-2 " v-if="setTechs.size">
-                    <div class="tooltip" v-for="(tech, index) in setTechs" :key="index">
-                        <Button txt-color="!text-[13px] " :txt="tech" :is-button="true" :icoSize="20"
-                            @click="filtering(tech, 'techs'), searchName = ''" />
-                        <span class="tooltip_text">{{ tech.toLowerCase() }}</span>
-                    </div>
+                    <Button v-for="(tech, index) in setTechs" :key="index" txt-color="!text-[13px] " :txt="tech"
+                        :is-button="true" :icoSize="20" @click="filtering(tech, 'techs'), searchName = ''" />
                 </div>
             </div>
 
@@ -64,7 +55,7 @@
     </div>
 
     <transition name="bounce">
-        <div v-if="showDetails" class="fixed left-0 top-0 bg-[rgb(42,42,42,0.95)] w-screen h-screen z-[30000]">
+        <div v-if="showDetails" class="fixed left-0 top-0 bg-[rgb(42,42,42,0.95)] w-screen h-screen z-[20000]">
             <div v-if="dataDetails.status" v-show="showDetails" :class="statusColors[dataDetails.status]"
                 style="font-family: cursive;"
                 class="w-[300px] h-max py-2 flex justify-center items-center text-white font-bold absolute -right-16 top-10 rotate-45 z-20">
@@ -126,7 +117,7 @@
 
 
 <script setup>
-import { ref, onMounted, watchEffect } from "vue";
+import { ref, onMounted } from "vue";
 import { getImageUrl, makeNoScroll } from '@/models/work.js';
 import { useRouter } from "vue-router";
 
@@ -141,8 +132,7 @@ import Magnify from 'vue-material-design-icons/Magnify.vue';
 import Close from 'vue-material-design-icons/Close.vue';
 
 // get data
-import all_json_projects from "@/data/dataProjectsFront.json";
-// import projects_full from "@/data/dataProjectsFull.json";
+import all_json_projects from "@/data/dataWP.json";
 
 const getList = ref(null);
 const filteredList = ref(null);
@@ -161,7 +151,7 @@ onMounted(() => {
     setTags.value = new Set(arrTags.value);
     setTechs.value = new Set(arrTechs.value);
 
-    // console.log(setTechs.value);
+    console.log(setTechs.value);
 })
 
 

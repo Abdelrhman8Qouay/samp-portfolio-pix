@@ -1,18 +1,11 @@
-<script setup>
-import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
-// get components
-import Navbar from '@/components/Main/Navbar.vue';
-import Footer from '@/components/Main/Footer.vue';
-</script>
 
 <template>
-  <Navbar v-once></Navbar>
+  <Navbar />
 
-  <main class="w-full min-h-[calc(100vh-68px)] relative">
+  <main class="w-full min-h-[calc(100vh-68px)] relative overflow-hidden">
 
     <router-view v-slot="{ Component }">
-      <transition name="fade" appear>
+      <transition name="paged" appear>
         <component :is="Component" />
       </transition>
     </router-view>
@@ -22,29 +15,36 @@ import Footer from '@/components/Main/Footer.vue';
   <!-- data-aos="zoom-in-up" <<< if want to use aos transition -->
 </template>
 
-<style scoped>
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.6s ease-out, opacity 0.6s;
+<script setup>
+import { ref, onMounted } from 'vue';
+import { RouterLink } from 'vue-router';
+// get components
+import Navbar from '@/components/Main/Navbar.vue';
+import Footer from '@/components/Main/Footer.vue';
+
+
+
+</script>
+
+<style lang="scss">
+.paged-enter-active,
+.paged-leave-active {
+  transition: all 0.4s ease-out, opacity 0.4s;
 }
 
-.slide-enter-to {
+.paged-enter-to {
   opacity: 1;
-  transform: scale(1);
 }
 
-.slide-enter-from {
+.paged-enter-from {
   opacity: 0;
-  transform: scale(1);
 }
 
-.slide-leave-to {
+.paged-leave-to {
   opacity: 0;
-  transform: scale(0);
 }
 
-.slide-leave-from {
+.paged-leave-from {
   opacity: 1;
-  transform: scale(1);
 }
 </style>

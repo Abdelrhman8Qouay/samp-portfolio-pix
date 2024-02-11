@@ -35,6 +35,22 @@ const router = createRouter({
       meta: {
         title: "Projects Page | Abdelrhman's Portfolio"
       }
+    },
+    {
+      path: '/projects/wordpress',
+      name: 'wordpress-projects',
+      component: () => import('../views/WpProjects.vue'),
+      meta: {
+        title: "Wordpress Projects Page | Abdelrhman's Portfolio"
+      }
+    },
+    { // Error Page
+      path: '/:pathMatch(.*)*',
+      name: 'ErrorPage',
+      component: () => import('../views/ErrorPage.vue'),
+      meta: {
+        title: "Error Page | Abdelrhman's Portfolio"
+      }
     }
   ]
 })

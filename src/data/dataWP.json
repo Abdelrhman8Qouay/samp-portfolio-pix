@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Tong Website",
+        "image": "assets/projects/TongTem.png",
+        "describe": "wordpress site: called(tong) a news website about ...",
+        "viewPage":"",
+        "codePage":"https://github.com/qouaynt/TONG-template",
+        "status": "pending",
+        "tags":[ "Custom Theme", "News", "SEO", "No Custom Plugin"],
+        "langs": ["theme", "seo"]
+    }
+]

@@ -14,8 +14,7 @@
   --dark-whiter1: #1f1f1f;
 
   --roof-color: #41464b;
-  --ground-color: linear-gradient(145deg, #434649, #1e1d1d);
-  --back-chars: #043247;
+  --ground-color: linear-gradient(145deg, #656b76, #000101);
 
   --hover-trans: 0.3s;
 }
@@ -53,6 +52,7 @@
 
 body {
   background: var(--ground-color) fixed;
+  /* background: linear-gradient(145deg, #656b76, #000101) fixed; */
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -70,6 +70,38 @@ body {
   max-width: 1024px; /* lg screen: 1024px */
   margin-left: auto;
   margin-right: auto;
+}
+
+.cursor_hide {
+  cursor: none !important;
+}
+
+.tooltip {
+  position: relative;
+}
+.tooltip:hover .tooltip_text {
+  opacity: 0.9;
+  visibility: visible;
+}
+.tooltip .tooltip_text {
+  position: absolute;
+  left: 0;
+  top: 115%;
+  padding: 3px 5px;
+  border-radius: 6px;
+  background: #222;
+  color: #cacaca;
+  font-size: small;
+  font-weight: 300;
+  z-index: 35000;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.32s ease-out;
+}
+.tooltip .tooltip_text:hover {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Text Colors */
